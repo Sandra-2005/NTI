@@ -1,0 +1,439 @@
+:root {
+    --burgundy: #890f4f;
+    --dark-pink: #c2185b;
+    --pink: #ed417a;
+    --light-pink: #f48fb1;
+    --soft-pink: #fde5ec;
+    --white: #ffffff;
+    --text: #3c1830;
+    --muted: #876879;
+    --border: rgba(255, 255, 255, 0.55);
+    --glass: rgba(255, 255, 255, 0.58);
+    --shadow: 0 25px 60px rgba(137, 15, 79, 0.13);
+
+    --success: #2e7d32;
+    --success-bg: rgba(46, 125, 50, 0.1);
+    --pending: #b8860b;
+    --pending-bg: rgba(184, 134, 11, 0.1);
+    --cancelled: #c62828;
+    --cancelled-bg: rgba(198, 40, 40, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Cairo", sans-serif;
+    color: var(--text);
+    background: linear-gradient(135deg, rgba(253, 229, 236, 0.93), rgba(255, 255, 255, 0.86));
+    overflow-x: hidden;
+}
+
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.liquid {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(10px);
+    opacity: 0.5;
+    animation: liquidMove 14s ease-in-out infinite alternate;
+}
+
+.liquid-one {
+    width: 420px;
+    height: 420px;
+    background: rgba(237, 65, 122, 0.2);
+    top: -130px;
+    right: -100px;
+}
+
+.liquid-two {
+    width: 330px;
+    height: 330px;
+    background: rgba(137, 15, 79, 0.15);
+    bottom: -100px;
+    left: -70px;
+    animation-delay: -4s;
+}
+
+.liquid-three {
+    width: 240px;
+    height: 240px;
+    background: rgba(244, 143, 177, 0.24);
+    top: 45%;
+    left: 38%;
+    animation-delay: -8s;
+}
+
+@keyframes liquidMove {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(30px, -25px) scale(1.08);
+    }
+
+    100% {
+        transform: translate(-20px, 30px) scale(0.95);
+    }
+}
+
+.dashboard {
+    width: min(1400px, calc(100% - 40px));
+    margin: auto;
+    padding: 30px 0 45px;
+}
+
+.glass {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    box-shadow: var(--shadow);
+}
+
+.welcome-section {
+    min-height: 200px;
+    padding: 35px 40px;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(100deg, rgba(137, 15, 79, 0.85), rgba(194, 24, 91, 0.5), rgba(237, 65, 122, 0.26));
+    box-shadow: 0 25px 60px rgba(137, 15, 79, 0.2);
+    color: white;
+}
+
+.welcome-section::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    right: -100px;
+    top: -150px;
+}
+
+.welcome-content {
+    position: relative;
+    z-index: 2;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 12px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.13);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    font-size: 11px;
+}
+
+.welcome-section h1 {
+    margin-top: 16px;
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.welcome-section p {
+    margin-top: 6px;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 13px;
+}
+
+.flower-decoration {
+    position: absolute;
+    width: 320px;
+    height: 250px;
+    left: 40px;
+    bottom: -65px;
+    opacity: 0.15;
+}
+
+.flower-icon {
+    position: absolute;
+    font-size: 180px;
+    transform: rotate(-20deg);
+}
+
+.leaf-one,
+.leaf-two {
+    position: absolute;
+    font-size: 80px;
+}
+
+.leaf-one {
+    left: 130px;
+    top: 20px;
+    transform: rotate(35deg);
+}
+
+.leaf-two {
+    left: 40px;
+    top: 90px;
+    transform: rotate(-30deg);
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 18px;
+    margin-top: 18px;
+}
+
+.panel {
+    border-radius: 28px;
+    padding: 28px;
+    position: relative;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.panel-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--burgundy);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.panel h2 {
+    margin-top: 8px;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.panel p {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.panel-icon {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 15px;
+    background: linear-gradient(135deg, var(--burgundy), var(--pink));
+    color: white;
+}
+
+.profile-panel .panel-icon {
+    position: absolute;
+    top: 28px;
+    right: 28px;
+}
+
+.profile-info {
+    margin-top: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.info-icon {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: var(--soft-pink);
+    color: var(--burgundy);
+    font-size: 14px;
+}
+
+.info-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.info-text span {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.info-text strong {
+    font-size: 13px;
+}
+
+.management-panel {
+    position: relative;
+    overflow: hidden;
+    min-height: 430px;
+}
+
+.management-visual {
+    height: 175px;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.visual-circle {
+    position: absolute;
+    width: 135px;
+    height: 135px;
+    border-radius: 50%;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    place-items: center;
+    font-size: 42px;
+    color: var(--burgundy);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.75), rgba(244, 143, 177, 0.4));
+    box-shadow:
+        inset 8px 8px 20px rgba(255, 255, 255, 0.6),
+        inset -8px -8px 20px rgba(137, 15, 79, 0.08),
+        0 25px 50px rgba(137, 15, 79, 0.12);
+}
+
+.visual-leaf {
+    position: absolute;
+    color: var(--pink);
+    opacity: 0.5;
+    font-size: 55px;
+}
+
+.leaf-a {
+    left: 20px;
+    top: 70px;
+    transform: rotate(45deg);
+}
+
+.leaf-b {
+    right: 30px;
+    top: 20px;
+    transform: rotate(-45deg);
+}
+
+.management-panel h2 {
+    font-size: 22px;
+}
+
+.management-panel p {
+    max-width: 360px;
+    line-height: 2;
+}
+
+.products-btn {
+    width: 100%;
+    height: 52px;
+    margin-top: 25px;
+    border: none;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--burgundy), var(--pink));
+    color: white;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 12px 25px rgba(137, 15, 79, 0.18);
+}
+
+.products-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 32px rgba(137, 15, 79, 0.24);
+}
+
+.empty-state,
+.error-state {
+    text-align: center;
+    padding: 30px 10px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.error-state {
+    color: var(--cancelled);
+}
+
+@media (max-width: 900px) {
+    .main-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .management-panel {
+        min-height: 390px;
+    }
+}
+
+@media (max-width: 700px) {
+    .dashboard {
+        width: min(100% - 24px, 600px);
+        padding-top: 16px;
+    }
+
+    .welcome-section {
+        min-height: 220px;
+        padding: 28px 23px;
+        border-radius: 24px;
+    }
+
+    .welcome-section h1 {
+        font-size: 21px;
+    }
+
+    .welcome-section p {
+        max-width: 320px;
+        line-height: 1.9;
+    }
+
+    .flower-decoration {
+        left: -50px;
+        opacity: 0.12;
+    }
+
+    .panel {
+        padding: 21px;
+        border-radius: 22px;
+    }
+
+    .panel h2 {
+        font-size: 17px;
+    }
+
+    .profile-panel .panel-icon {
+        position: static;
+        margin-bottom: 4px;
+    }
+}
